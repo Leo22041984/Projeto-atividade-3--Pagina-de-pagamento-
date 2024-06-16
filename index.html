@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Pagamento</title>
+    <!-- Link para o CSS do Bootstrap -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="topo container-fluid bg-success text-white p-3 fixed-top">
+        <div class="row">
+            <div class="col-6 text-left">Atendimento</div>
+            <div class="col-6 text-right">Ambiente Seguro</div>
+        </div>
+    </header>
+
+    <!-- Container da pagina inicial -->
+    <div class="container mt-5 pt-5">
+        <h1 class="text-center">Forma de Pagamento</h1>
+        <form id="formPagamento" class="mt-3">
+            <div class="form-group">
+                <label for="valor">Valor:</label>
+                <input type="number" class="form-control" id="valor" name="valor" min="0" step="0.01" required>
+            </div>
+            <button type="button" class="btn btn-primary btn-block" id="informarDados">Informar Dados</button>
+
+            <div id="metodoPagamento" class="oculto mt-3">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="metodo" value="pix" id="pix">
+                    <label class="form-check-label" for="pix">Pix</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="metodo" value="cartao" id="cartao">
+                    <label class="form-check-label" for="cartao">Cartão de Crédito</label>
+                </div>
+            </div>
+
+            <div id="mensagem" class="oculto alert alert-info mt-3"></div>
+
+            <!-- Div do painel para pagamento em pix -->
+            <div id="painelPix" class="oculto mt-3">
+                <h2>Pagamento via Pix</h2>
+                <p>Total com 10% de desconto: R$ <span id="totalPix"></span></p>
+                <div class="form-group">
+                    <label for="cpf">CPF:</label>
+                    <input type="text" class="form-control" id="cpf" name="cpf" required>
+                    <p id="erroCPF" class="oculto text-danger">CPF inválido</p>
+                </div>
+            </div>
+
+            <!-- Div do painel para pagamento em cartão de crédito -->
+            <div id="painelCartao" class="oculto mt-3">
+                <h2>Pagamento via Cartão de Crédito</h2>
+                <div class="form-group">
+                    <label for="numeroCartao">Número do Cartão:</label>
+                    <input type="text" class="form-control" id="numeroCartao" name="numeroCartao" required>
+                    <span id="iconeCartao"></span>
+                    <p id="erroCartao" class="oculto text-danger">Número de cartão inválido</p>
+                </div>
+                <div class="form-group">
+                    <label for="nomeTitular">Nome do Titular:</label>
+                    <input type="text" class="form-control" id="nomeTitular" name="nomeTitular" required>
+                </div>
+                <div class="form-group">
+                    <label for="codigoSeguranca">Código de Segurança:</label>
+                    <input type="text" class="form-control" id="codigoSeguranca" name="codigoSeguranca" required>
+                </div>
+                <div class="form-group">
+                    <label for="vencimento">Data de Vencimento:</label>
+                    <input type="month" class="form-control" id="vencimento" name="vencimento" required>
+                </div>
+                <div class="form-group">
+                    <label for="parcelas">Parcelas:</label>
+                    <select class="form-control" id="parcelas" name="parcelas" required>
+                        <option value="1">1x sem juros</option>
+                        <option value="2">2x sem juros</option>
+                        <option value="3">3x sem juros</option>
+                        <option value="4">4x com 5% de juros</option>
+                        <option value="5">5x com 10% de juros</option>
+                    </select>
+                </div>
+                <p>Total: R$ <span id="totalCartao"></span></p>
+                <p>Valor por parcela: R$ <span id="valorParcela"></span></p>
+            </div>
+
+            <button type="button" class="btn btn-success btn-block oculto mt-3" id="pagar">Pagar</button>
+        </form>
+        <div id="mensagemSucesso" class="oculto alert alert-success mt-3">Pagamento realizado com sucesso!</div>
+    </div>
+    
+    <!-- Footer para o rodapé da página -->
+    <footer class="rodape container-fluid bg-success text-white p-3 fixed-bottom">
+        <div class="row">
+            <div class="col text-center">
+                Pagamento:
+                <img src="img/icons8-visa-120.png" alt="Visa" class="icone">
+                <img src="img/icons8-mastercard-120.png" alt="Mastercard" class="icone">
+                <img src="img/icons8-foto-96.png" alt="Pix" class="icone">
+            </div>
+        </div>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+
+</html>

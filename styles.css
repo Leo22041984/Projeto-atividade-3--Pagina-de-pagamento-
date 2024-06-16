@@ -1,0 +1,70 @@
+/* Estilo para o corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e9e4e4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding-top: 60px;
+    padding-bottom: 100px; 
+}
+
+/* Adicionar transição no topo */
+.topo div {
+    transition: color 0.5s;
+}
+
+/* Estilo para o fundo verde */
+.container.selecionado {
+    background-color: #79bc5b;
+}
+
+/* Estilo para mensagens */
+#mensagem,
+#mensagemSucesso {
+    color: #0000ff;
+    background-color: #add8e6;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+/* Estilo para ícones do cartão */
+#iconeCartao {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-size: cover;
+    margin-left: 10px;
+}
+
+/* Estilo para mensagem de erro do cartão */
+#erroCartao {
+    color: red;
+    font-size: 0.9em;
+}
+
+/* Ocultar elementos */
+.oculto {
+    display: none;
+}
+
+/* Adicionar transição no rodapé */
+.rodape div {
+    transition: color 0.5s;
+}
+
+/* Estilo para os ícones do rodapé */
+.rodape .icone {
+    width: 24px;
+    height: 24px;
+    margin-left: 10px;
+}
+
+/* Estilo para o hover */
+.topo div:hover,
+.rodape div:hover {
+    color: #1c2f15;
+    /* Cor do texto ao passar o mouse */
+}
